@@ -16,7 +16,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/tarefas")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000") // Permite requisições do frontend
+@CrossOrigin(origins = "*") // Permite requisições do frontend
 public class TarefaController {
 
     private final TarefaService service;
