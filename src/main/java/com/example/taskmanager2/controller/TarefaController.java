@@ -3,6 +3,8 @@ package com.example.taskmanager2.controller;
 import com.example.taskmanager2.model.Tarefa;
 import com.example.taskmanager2.repository.TarefaRepository;
 import com.example.taskmanager2.service.TarefaService;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.servers.Server;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,10 +15,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 import java.util.UUID;
 
+@OpenAPIDefinition(
+        servers = {
+                @Server(url = "https://taskmanager-backend-production-ebff.up.railway.app", description = "Servidor Produção")
+        }
+)
 @RestController
 @RequestMapping("/tarefas")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "*") // Permite requisições do frontend
+@CrossOrigin(origins = "*")
 public class TarefaController {
 
     private final TarefaService service;
